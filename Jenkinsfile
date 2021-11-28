@@ -1,6 +1,6 @@
 @Library('roboshop') _
 
 nodejs(
-  COMPONENT : 'cart',
+  COMPONENT : 'user',
   LABEL     : 'WORKSTATION'
 )
