@@ -1,5 +1,5 @@
 module "user" {
-  source = "git::https://github.com/venuk-1502/devops.git//terraform-mutable/app-module"
+  source = "git::https://github.com/venuk-1502/devops.git//terraform-immutable/app-module"
   ENV                    = var.ENV
   COMPONENT              = var.COMPONENT
   SPOT_INSTANCE_COUNT    = var.SPOT_INSTANCE_COUNT
