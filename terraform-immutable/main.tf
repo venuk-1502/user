@@ -1,4 +1,4 @@
-module "application" {
+module "user" {
   source = "git::https://github.com/venuk-1502/devops.git//terraform-mutable/app-module"
   ENV                    = var.ENV
   COMPONENT              = var.COMPONENT
