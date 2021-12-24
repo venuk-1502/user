@@ -1,0 +1,22 @@
+replicaCount: 1
+image:
+  repository: 378784712135.dkr.ecr.us-east-1.amazonaws.com/cart
+  pullPolicy: IfNotPresent
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: "cart"
+
+service:
+  type: ClusterIP
+  port: 80
+  containerPort: 8080
+
+resources:
+   limits:
+     cpu: 100m
+     memory: 256Mi
+   requests:
+     cpu: 100m
+     memory: 256Mi
