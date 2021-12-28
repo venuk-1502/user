@@ -1,12 +1,12 @@
+appName: user
 replicaCount: 1
 image:
-  repository: 378784712135.dkr.ecr.us-east-1.amazonaws.com/cart
-  pullPolicy: IfNotPresent
+  repository: 378784712135.dkr.ecr.us-east-1.amazonaws.com/user
+  pullPolicy: Always
 
 serviceAccount:
   create: true
   annotations: {}
-  name: "cart"
 
 service:
   type: ClusterIP
@@ -14,9 +14,24 @@ service:
   containerPort: 8080
 
 resources:
-   limits:
-     cpu: 100m
-     memory: 256Mi
-   requests:
-     cpu: 100m
-     memory: 256Mi
+  limits:
+    cpu: 100m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 256Mi
+
+env:
+  name: dev
+
+configmap:
+  create: true
+  content:
+    MONGO_URL: "mongodb://mongo-mongodb:27017/users"
+    REDIS_HOST: redis-master
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 70
